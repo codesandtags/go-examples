@@ -27,9 +27,8 @@ func newDeck() deck {
 	return cards
 }
 
-/**
- * Heree he use a Receiver function
- **/
+
+// Heree he use a Receiver function
 func (d deck) print() {
 	fmt.Println("The deck contains the next cards : ")
 
@@ -43,10 +42,12 @@ func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
+// Reciever to print the elements
 func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
+// Reciever to save the elements in a file
 func (d deck) saveToFile(filename string) {
 	ioutil.WriteFile(filename, []byte(d.toString()), 0644)
 }
